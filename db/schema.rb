@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20161212151959) do
 
   create_table "account_viplist", id: false, force: :cascade do |t|
     t.integer "account_id", limit: 4,             null: false
@@ -25,19 +25,30 @@ ActiveRecord::Schema.define(version: 0) do
   add_index "account_viplist", ["world_id"], name: "world_id", using: :btree
 
   create_table "accounts", force: :cascade do |t|
-    t.string  "name",     limit: 32,  default: "",    null: false
-    t.string  "password", limit: 255,                 null: false
-    t.string  "salt",     limit: 40,  default: "",    null: false
-    t.integer "premdays", limit: 4,   default: 0,     null: false
-    t.integer "lastday",  limit: 4,   default: 0,     null: false
-    t.string  "email",    limit: 255, default: "",    null: false
-    t.string  "key",      limit: 32,  default: "0",   null: false
-    t.boolean "blocked",              default: false, null: false
-    t.integer "warnings", limit: 4,   default: 0,     null: false
-    t.integer "group_id", limit: 4,   default: 1,     null: false
+    t.string   "name",                   limit: 32,  default: "",    null: false
+    t.string   "password",               limit: 255,                 null: false
+    t.string   "salt",                   limit: 40,  default: "",    null: false
+    t.integer  "premdays",               limit: 4,   default: 0,     null: false
+    t.integer  "lastday",                limit: 4,   default: 0,     null: false
+    t.string   "email",                  limit: 255, default: "",    null: false
+    t.string   "key",                    limit: 32,  default: "0",   null: false
+    t.boolean  "blocked",                            default: false, null: false
+    t.integer  "warnings",               limit: 4,   default: 0,     null: false
+    t.integer  "group_id",               limit: 4,   default: 1,     null: false
+    t.string   "encrypted_password",     limit: 255, default: "",    null: false
+    t.string   "reset_password_token",   limit: 255
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          limit: 4,   default: 0,     null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
   end
 
+  add_index "accounts", ["email"], name: "index_accounts_on_email", unique: true, using: :btree
   add_index "accounts", ["name"], name: "name", unique: true, using: :btree
+  add_index "accounts", ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true, using: :btree
 
   create_table "bans", force: :cascade do |t|
     t.boolean "type",                                   null: false
@@ -283,7 +294,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "sex",             limit: 4,     default: 0,         null: false
     t.integer "lastlogin",       limit: 8,     default: 0,         null: false
     t.integer "lastip",          limit: 4,     default: 0,         null: false
-    t.boolean "save",                          default: true,      null: false
+    t.boolean "save_renamed",                  default: true,      null: false
     t.boolean "skull",                         default: false,     null: false
     t.integer "skulltime",       limit: 4,     default: 0,         null: false
     t.integer "rank_id",         limit: 4,     default: 0,         null: false
