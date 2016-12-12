@@ -396,8 +396,6 @@ ActiveRecord::Schema.define(version: 20161212151959) do
   add_index "tiles", ["id", "world_id"], name: "id", unique: true, using: :btree
   add_index "tiles", ["x", "y", "z"], name: "x", using: :btree
 
-  add_foreign_key "account_viplist", "accounts", name: "account_viplist_ibfk_1", on_delete: :cascade
-  add_foreign_key "account_viplist", "players", name: "account_viplist_ibfk_2", on_delete: :cascade
   add_foreign_key "environment_killers", "killers", column: "kill_id", name: "environment_killers_ibfk_1", on_delete: :cascade
   add_foreign_key "guild_invites", "guilds", name: "guild_invites_ibfk_2", on_delete: :cascade
   add_foreign_key "guild_invites", "players", name: "guild_invites_ibfk_1", on_delete: :cascade
