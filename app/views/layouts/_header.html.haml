@@ -1,0 +1,11 @@
+%header.navbar.navbar-fixed-top.navbar-inverse
+  %div.container
+    %nav
+      = link_to "Helera", root_path, id: "logo"
+      %ul.nav.navbar-nav.navbar-right
+        = link_to "Home", root_path, class: "nav-li"
+        = link_to "News", news_path, class: "nav-li"
+        = link_to "Store", store_path, class: "nav-li"
+        = link_to "Search", search_path, class: "nav-li"
+        = link_to "Log In", new_account_session_path, class: "nav-li"
+
