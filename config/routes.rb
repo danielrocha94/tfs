@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :accounts
-
-  get    '/login',   to: 'accounts#new'
-  post   '/signup',  to: 'accounts#create'
+  get    '/signup', to: 'accounts#new'
+  get    '/login',   to: 'sessions#new'
+  post   '/login',  to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
   root    'static_pages#home'
