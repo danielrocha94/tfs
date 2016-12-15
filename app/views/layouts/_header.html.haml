@@ -3,12 +3,18 @@
     %nav
       = link_to "Helera", root_path, id: "logo"
       %ul.nav.navbar-nav.navbar-right
-        = link_to "Home", root_path, class: "nav-li"
-        = link_to "News", news_path, class: "nav-li"
-        = link_to "Store", store_path, class: "nav-li"
-        = link_to "Search", search_path, class: "nav-li"
+        %li
+          = link_to "Home", root_path
+        %li
+          = link_to "News", news_path
+        %li
+          = link_to "Store", store_path
+        %li
+          = link_to "Search", search_path
+
         - if logged_in?
-          %li= link_to "Users", '#'
+          %li
+            = link_to "Users", '#'
           %li.dropdown
             %a.dropdown-toggle{ :href => "#", "role" => "button", "data-toggle" => "dropdown", "data-taget" => "#"}
               Account
@@ -19,4 +25,5 @@
               %li.divider
               %li= link_to "Log out", logout_path, method: "delete"
         - else
-          = link_to "Log In", login_path, class: "nav-li"
+          %li
+            = link_to "Log In", login_path

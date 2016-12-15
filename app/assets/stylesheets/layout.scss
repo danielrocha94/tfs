@@ -8,38 +8,7 @@ $gray-medium-light: #eaeaea;
 }
 
 //HEADER
-.navbar-nav{
-  width: 85%;
-  float: right;
-  list-style: none;
-  .nav-li{
-    display: inline-block;
-    color: white;
-    padding: 2% 3%;
-    float: right;
-    margin-left: 15px;
-  }
-}
 
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-   &:hover {
-      color: white;
-       text-decoration: none;
-      }
-    }
-
- //BODY
-body {
-  padding-top: 5%;
-}
 
 /* forms */
 
