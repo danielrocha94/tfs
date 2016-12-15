@@ -1,24 +1,18 @@
-<h2>Log in</h2>
+%h1 Log in
+.row
+  .col-md-6.col-md-offset-3
+    = form_for(:session, url: login_path) do |f|
+      .field
+        = f.label :email
+        = f.email_field :email, autofocus: true, class: "form-control"
 
-= form_for(:session, login_path) do |f|
-  .field
-    = f.label :email
-    = f.email_field :email, autofocus: true
+        = f.label :password
+        = f.password_field :password, autocomplete: "off", class: "form-control"
 
-/  <div class="field">
-/    <%= f.label :password %><br />
-/    <%= f.password_field :password, autocomplete: "off" %>
-/  </div>
-/
-/  <% if devise_mapping.rememberable? -%>
-/    <div class="field">
-/      <%= f.check_box :remember_me %>
-/      <%= f.label :remember_me %>
-/    </div>
-/  <% end -%>
-/
-/  <div class="actions">
-/    <%= f.submit "Log in" %>
-/  </div>
-/<% end %>
+        = f.submit "Log in", class: "btn btn-primary"
+
+      %p
+        new user?
+        = link_to "Sign up now!", signup_path
+
 /<%= render "devise/shared/links" %>

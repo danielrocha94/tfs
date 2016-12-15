@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161214142959) do
+ActiveRecord::Schema.define(version: 20161215103327) do
 
   create_table "account_viplist", id: false, force: :cascade do |t|
     t.integer "account_id", limit: 4,             null: false
@@ -25,16 +25,17 @@ ActiveRecord::Schema.define(version: 20161214142959) do
   add_index "account_viplist", ["world_id"], name: "world_id", using: :btree
 
   create_table "accounts", force: :cascade do |t|
-    t.string  "name",     limit: 32,  default: "",    null: false
-    t.string  "password", limit: 255,                 null: false
-    t.string  "salt",     limit: 40,  default: "",    null: false
-    t.integer "premdays", limit: 4,   default: 0,     null: false
-    t.integer "lastday",  limit: 4,   default: 0,     null: false
-    t.string  "email",    limit: 255, default: "",    null: false
-    t.string  "key",      limit: 32,  default: "0",   null: false
-    t.boolean "blocked",              default: false, null: false
-    t.integer "warnings", limit: 4,   default: 0,     null: false
-    t.integer "group_id", limit: 4,   default: 1,     null: false
+    t.string  "name",            limit: 32,  default: "",    null: false
+    t.string  "password",        limit: 255,                 null: false
+    t.string  "salt",            limit: 40,  default: "",    null: false
+    t.integer "premdays",        limit: 4,   default: 0,     null: false
+    t.integer "lastday",         limit: 4,   default: 0,     null: false
+    t.string  "email",           limit: 255, default: "",    null: false
+    t.string  "key",             limit: 32,  default: "0",   null: false
+    t.boolean "blocked",                     default: false, null: false
+    t.integer "warnings",        limit: 4,   default: 0,     null: false
+    t.integer "group_id",        limit: 4,   default: 1,     null: false
+    t.string  "password_digest", limit: 255
   end
 
   add_index "accounts", ["email"], name: "index_accounts_on_email", unique: true, using: :btree

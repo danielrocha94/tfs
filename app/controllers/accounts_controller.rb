@@ -9,8 +9,10 @@ class AccountsController < ApplicationController
 
   def create
     @account = Account.new(account_params)
+    @account[:password] = Account.digest (@account.password)
     if @account.save
       flash[:success] = "Your account has been created!"
+      log_in @account
       redirect_to @account
     else
       render 'new'
@@ -26,6 +28,6 @@ class AccountsController < ApplicationController
 
   private
   def account_params
-    params.require(:account).permit(:name, :email, :password)
+    params.require(:account).permit(:name, :email, :password, :password_confirmation)
   end
 end
