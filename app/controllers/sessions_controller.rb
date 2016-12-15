@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
       flash.now[:success] = "Logged in!"
       log_in account
       redirect_to account
+      remember account
     else
       flash.now[:danger] = "Invalid credentials!"
       render 'new'
@@ -16,8 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out
-    flash[:warning] = "Disconnected successfully!"
+    log_out if logged_in?
     redirect_to root_url
   end
 end

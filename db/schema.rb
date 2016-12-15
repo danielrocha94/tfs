@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161215103327) do
+ActiveRecord::Schema.define(version: 20161215115753) do
 
   create_table "account_viplist", id: false, force: :cascade do |t|
     t.integer "account_id", limit: 4,             null: false
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20161215103327) do
     t.integer "warnings",        limit: 4,   default: 0,     null: false
     t.integer "group_id",        limit: 4,   default: 1,     null: false
     t.string  "password_digest", limit: 255
+    t.string  "remember_digest", limit: 255
   end
 
   add_index "accounts", ["email"], name: "index_accounts_on_email", unique: true, using: :btree

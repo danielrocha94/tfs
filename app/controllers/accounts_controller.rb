@@ -9,7 +9,7 @@ class AccountsController < ApplicationController
 
   def create
     @account = Account.new(account_params)
-    @account[:password] = Account.digest (@account.password)
+    @account[:password] = Account.sha1_encrypt (@account.password)
     if @account.save
       flash[:success] = "Your account has been created!"
       log_in @account
