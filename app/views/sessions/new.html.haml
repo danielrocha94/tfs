@@ -9,6 +9,11 @@
         = f.label :password
         = f.password_field :password, autocomplete: "off", class: "form-control"
 
+        = f.label :remember_me, class: "checkbox inline" do
+          = f.check_box :remember_me
+          %span
+            remember me on this computer?"
+
         = f.submit "Log in", class: "btn btn-primary"
 
       %p
